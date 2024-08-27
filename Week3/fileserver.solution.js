@@ -1,11 +1,15 @@
 const express = require("express");
 // const fs = require("fs/promises");
 const fs = require("fs");
+const cors = require('cors');
 
 const PORT = 3000;
 const app = express();
 
 app.use(express.json());
+app.use(cors({
+  origin: 'http://127.0.0.1:9998',
+}));
 
 app.get("/", (req, res) => {
   res.send("Working...");
